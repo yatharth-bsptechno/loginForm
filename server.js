@@ -1,12 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || "fallback-secret-key";
 
+// Middleware
+app.use(cors());
 app.use(express.json());
 
 // MongoDB Atlas connection
